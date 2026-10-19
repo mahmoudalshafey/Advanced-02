@@ -50,5 +50,20 @@
                 result.Add(transformer(p));
             return result;
         }
+
+        // ===================== Task 03.3: Filter Products =====================
+        // Delegate used: Predicate<Product>
+        // Why: Predicate<T> is the built-in delegate for "does this item match?"
+        // (takes T, returns bool), which fits a filtering condition naturally.
+        static List<Product> FilterProducts(List<Product> products, Predicate<Product> condition)
+        {
+            List<Product> result = new();
+            foreach (Product p in products)
+            {
+                if (condition(p))
+                    result.Add(p);
+            }
+            return result;
+        }
     }
 }
