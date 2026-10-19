@@ -28,5 +28,15 @@
                 Console.WriteLine($"{p.Name} - ${p.Price} (Stock: {p.Stock})");
             Console.WriteLine();
         }
+
+        // ===================== Task 03.1: Print Reports =====================
+        // Delegate used: Action<Product>
+        // Why: the caller decides HOW to print each product. The action does something
+        // (prints) and returns nothing, so Action<T> is the right built-in delegate.
+        static void PrintReport(List<Product> products, Action<Product> action)
+        {
+            foreach (Product p in products)
+                action(p);
+        }
     }
 }
