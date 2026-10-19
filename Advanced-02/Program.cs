@@ -38,5 +38,17 @@
             foreach (Product p in products)
                 action(p);
         }
+
+        // ===================== Task 03.2: Transform Products =====================
+        // Delegate used: Func<Product, string>
+        // Why: each product is converted into a string, so the delegate takes a Product
+        // and RETURNS a value. That is Func<Product, string>.
+        static List<string> TransformProducts(List<Product> products, Func<Product, string> transformer)
+        {
+            List<string> result = new();
+            foreach (Product p in products)
+                result.Add(transformer(p));
+            return result;
+        }
     }
 }
